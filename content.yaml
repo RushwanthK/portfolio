@@ -7,7 +7,7 @@
 site:
   title: "Rushwanth K — Software Engineer"
   description: "Software Engineer building full-stack web applications, backend services and AI-powered features."
-  url: ""            # set to your final URL once deployed (used for social previews)
+  url: "https://portfolio-mauve-rho-36.vercel.app"   # used for social previews
 
 person:
   name: "Rushwanth K"
