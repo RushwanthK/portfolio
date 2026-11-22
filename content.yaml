@@ -1,0 +1,165 @@
+# ---------------------------------------------------------------
+# All portfolio text lives here. Edit this file, then rebuild:
+#   .venv\Scripts\python build.py          (one-off build)
+#   .venv\Scripts\python build.py --serve  (live preview + rebuild)
+# ---------------------------------------------------------------
+
+site:
+  title: "Rushwanth K — Software Engineer"
+  description: "Software Engineer building full-stack web applications, backend services and AI-powered features."
+  url: ""            # set to your final URL once deployed (used for social previews)
+
+person:
+  name: "Rushwanth K"
+  first_name: "Rushwanth"
+  initials: "RK"
+  role: "Software Engineer"
+  location: "Bangalore, India"
+  availability: "Open to Software Engineer roles"
+  headline_lead: "I build reliable"
+  headline_rotating: ["full-stack apps", "backend services", "AI-powered features"]
+  headline_tail: "that solve real problems."
+  intro: >-
+    Software Engineer with 2+ years at Hitachi, now shipping production-style
+    applications with Python, React and PostgreSQL — from REST APIs and
+    databases to LLM workflows, automated tests and CI/CD.
+  email: "rushwanth13@gmail.com"
+  linkedin: "https://www.linkedin.com/in/rushwanth-k-54a6a7200"
+  github: "https://github.com/RushwanthK"
+  resume: "assets/Rushwanth_K_Resume.pdf"
+
+stats:
+  - value: "2+"
+    label: "years at Hitachi"
+  - value: "3"
+    label: "deployed full-stack projects"
+  - value: "8.56"
+    label: "CGPA, B.E. Information Science"
+
+about:
+  paragraphs:
+    - >-
+      I started my career at Hitachi, supporting enterprise finance systems
+      (PeopleSoft and Workday FIN/PSA) and building internal tools with Oracle
+      APEX and PL/SQL. Working on production systems taught me how much
+      reliability, clear data and good debugging matter.
+    - >-
+      Since then I've been building full-stack applications end to end: designing
+      PostgreSQL schemas, writing Flask and FastAPI services, building React
+      interfaces, and adding LLM workflows with LangGraph. I care about the parts
+      that make software dependable: tests, CI, caching, indexing and clean deployments.
+  principles:
+    - title: "Reliable by default"
+      text: "Automated tests, CI pipelines and clear error states before new features."
+    - title: "Data-first thinking"
+      text: "Sound schemas, indexed queries and honest numbers in every view."
+    - title: "AI that's actually useful"
+      text: "LLMs used for real workflow wins, with structured, checkable outputs."
+
+projects:
+  - id: "ppa"
+    name: "Personal Portfolio Application"
+    tagline: "Full-stack personal finance platform"
+    year: "2026"
+    visual: "dashboard"
+    accent: "#8b7bff"
+    summary: >-
+      A production-style finance app to manage bank accounts, credit cards,
+      savings, assets, investments and transactions from one dashboard.
+    highlights:
+      - "REST APIs in Flask + SQLAlchemy with JWT auth and per-user access control"
+      - "Server-side transaction search with cursor-based pagination and PostgreSQL indexes"
+      - "Optional Redis caching for dashboard data, with cache invalidation and Postgres fallback"
+      - "Request & SQL performance diagnostics, Pytest suite, GitHub Actions CI, Docker Compose"
+    stack: ["Flask", "React", "PostgreSQL", "Redis", "JWT", "Docker", "GitHub Actions", "Vercel", "Render", "Supabase"]
+    live: "https://rs-ppa.vercel.app"
+    code: "https://github.com/RushwanthK/PPA"
+
+  - id: "qms"
+    name: "AI-Powered Pharmaceutical QMS"
+    tagline: "LLM-driven complaint management"
+    year: "2026"
+    visual: "flow"
+    accent: "#3ee0c5"
+    summary: >-
+      An AI-assisted complaint management system that turns customer emails and
+      PDF reports into structured, risk-assessed quality records.
+    highlights:
+      - "LangGraph workflow for LLM extraction of complaint data from text and PDFs (pdfplumber)"
+      - "Automatic risk assessment: severity, priority, risk summary and suggested action"
+      - "AI Copilot applies natural-language edits to only the requested fields"
+      - "Rate-limited, validated FastAPI endpoints; React + Redux Toolkit UI; deployed on Vercel, Render and Supabase"
+    stack: ["React", "Redux Toolkit", "Material UI", "FastAPI", "LangGraph", "Groq · gpt-oss-120b", "PostgreSQL", "Vercel", "Render", "Supabase"]
+    live: "https://aivoa-assignment-chi.vercel.app"
+    code: "https://github.com/RushwanthK/aivoa-assignment"
+
+  - id: "gridbrick"
+    name: "GridBrick"
+    tagline: "GB wind-forecast decision support"
+    year: "2026"
+    visual: "chart"
+    accent: "#ffb547"
+    summary: >-
+      A decision-support portal for a day-ahead power procurement desk: what wind
+      forecast was available at decision time, and how accurate was it?
+    highlights:
+      - "As-of forecast selection with no look-ahead bias, built on live Elexon BMRS data"
+      - "MAE, RMSE, bias, WAPE and P90 shortfall buffer to size procurement risk"
+      - "P10–P90 forecast bands, forecast-evolution view, CSV export, shareable URL filters"
+      - "React 19 + TypeScript + TanStack Query frontend; FastAPI + pandas backend"
+    stack: ["TypeScript", "React", "TanStack Query", "Recharts", "Tailwind", "FastAPI", "pandas", "Vercel"]
+    live: "https://srgb13.vercel.app"
+    code: "https://github.com/RushwanthK/srgb13"
+
+experience:
+  - company: "Hitachi Digital Services"
+    role: "Application Support & Developer"
+    period: "Jan 2024 — May 2026"
+    location: "Bangalore"
+    points:
+      - "Built an internal web tool with Oracle APEX and PL/SQL to track and debug application errors."
+      - "Supported PeopleSoft and Workday FIN/PSA modules for time, expense and billing workflows."
+      - "Analyzed production issues with SQL and tested fixes to keep systems reliable."
+      - "Worked with cross-functional teams through releases and enhancements."
+  - company: "Hitachi Vantara"
+    role: "Intern"
+    period: "Feb 2023 — Dec 2023"
+    location: "Bangalore"
+    points:
+      - "Configured Salesforce flows, validations, approval processes, reports and dashboards."
+      - "Developed Apex triggers with unit tests to automate backend business logic."
+      - "Built internal Oracle APEX applications to support business workflows."
+
+skills:
+  - group: "Languages"
+    items: ["Python", "JavaScript", "TypeScript", "SQL", "PL/SQL", "C++"]
+  - group: "Frontend"
+    items: ["React", "Redux Toolkit", "HTML", "CSS", "Material UI", "Tailwind"]
+  - group: "Backend & APIs"
+    items: ["Flask", "FastAPI", "SQLAlchemy", "REST APIs", "JWT Auth", "Flask-Migrate"]
+  - group: "Data & Caching"
+    items: ["PostgreSQL", "Redis", "SQLite", "Oracle SQL", "pandas"]
+  - group: "AI"
+    items: ["LangGraph", "Groq", "LLM workflows", "PDF extraction"]
+  - group: "DevOps & Cloud"
+    items: ["Docker", "Docker Compose", "GitHub Actions", "Vercel", "Render", "Supabase"]
+  - group: "Testing"
+    items: ["Pytest", "Postman"]
+  - group: "Enterprise"
+    items: ["Oracle APEX", "PeopleSoft", "Workday FIN/PSA", "Salesforce"]
+
+certifications:
+  - name: "Oracle APEX Cloud Developer Certified Professional"
+    issuer: "Oracle"
+    date: "Jan 2025"
+    url: "https://catalog-education.oracle.com/ords/certview/sharebadge?id=9D21A5B0028E380C365667768308ED4A1108FEEC9AE757E977FA654F053029D7"
+  - name: "Introduction to Data Analytics"
+    issuer: "Coursera"
+    date: "Nov 2025"
+    url: "https://www.coursera.org/account/accomplishments/verify/I8N6E0IHIVHX"
+
+education:
+  - school: "RNS Institute of Technology"
+    degree: "B.E. Information Science & Engineering"
+    detail: "CGPA 8.56"
+    period: "2019 — 2023"

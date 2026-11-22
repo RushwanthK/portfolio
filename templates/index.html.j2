@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ site.title }}</title>
+  <meta name="description" content="{{ site.description }}">
+  <meta name="theme-color" content="#07070b">
+  <meta property="og:title" content="{{ site.title }}">
+  <meta property="og:description" content="{{ site.description }}">
+  <meta property="og:type" content="website">
+  {% if site.url %}<meta property="og:url" content="{{ site.url }}">{% endif %}
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v={{ build_id }}">
+  <script>document.documentElement.classList.add("js")</script>
+</head>
+<body>
+  <div class="aurora" aria-hidden="true">
+    <span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span>
+  </div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#top" class="logo" aria-label="Home">
+        <span class="logo-mark">{{ person.initials }}</span>
+        <span class="logo-text">{{ person.name }}</span>
+      </a>
+      <nav class="nav-links" id="navLinks" aria-label="Primary">
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a href="{{ person.resume }}" class="btn btn-ghost btn-sm nav-cta" download>
+        Resume
+        <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M12 4v12m0 0l-5-5m5 5l5-5M5 20h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="container hero-grid">
+      <div class="hero-inner">
+        <div class="pill reveal">
+          <span class="pulse" aria-hidden="true"></span>
+          {{ person.availability }}
+        </div>
+
+        <h1 class="hero-title reveal" style="--d:.08s">
+          <span class="hero-hi">Hi, I'm {{ person.first_name }}.</span>
+          {{ person.headline_lead }}
+          <span class="rotator" aria-live="polite">
+            {% for w in person.headline_rotating %}<span class="rot-word{% if loop.first %} is-active{% endif %}">{{ w }}</span>{% endfor %}
+          </span>
+          <span class="hero-tail">{{ person.headline_tail }}</span>
+        </h1>
+
+        <p class="hero-sub reveal" style="--d:.16s">{{ person.intro }}</p>
+
+        <div class="hero-ctas reveal" style="--d:.24s">
+          <a href="#work" class="btn btn-primary magnetic">
+            View my work
+            <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 12h14m-6-6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="{{ person.resume }}" class="btn btn-ghost magnetic" download>Download resume</a>
+        </div>
+
+        <ul class="hero-meta reveal" style="--d:.32s">
+          <li><span class="mono">loc</span> {{ person.location }}</li>
+          <li><span class="mono">role</span> {{ person.role }}</li>
+          <li><span class="mono">stack</span> Python · React · PostgreSQL</li>
+        </ul>
+      </div>
+
+      <div class="hero-art reveal" style="--d:.3s" aria-hidden="true">
+        <div class="code-card" id="tilt">
+          <div class="code-bar">
+            <span class="dots"><i></i><i></i><i></i></span>
+            <span class="mono code-file">engineer.py</span>
+          </div>
+<pre class="code"><span class="k">class</span> <span class="c">Engineer</span>:
+    name     = <span class="s">"{{ person.name }}"</span>
+    role     = <span class="s">"{{ person.role }}"</span>
+    based_in = <span class="s">"{{ person.location }}"</span>
+
+    backend  = [<span class="s">"Flask"</span>, <span class="s">"FastAPI"</span>, <span class="s">"PostgreSQL"</span>]
+    frontend = [<span class="s">"React"</span>, <span class="s">"TypeScript"</span>]
+    ai       = [<span class="s">"LangGraph"</span>, <span class="s">"LLMs"</span>]
+
+    <span class="k">def</span> <span class="f">ship</span>(self, idea):
+        <span class="k">return</span> self.build(idea).test().deploy()
+
+<span class="cm"># status</span>
+Engineer.open_to_work = <span class="k">True</span><span class="caret"></span></pre>
+        </div>
+        <div class="float-badge fb1"><span class="ok">●</span> CI passing</div>
+        <div class="float-badge fb2"><span class="mono">▲</span> Deployed on Vercel</div>
+      </div>
+      </div>
+
+      <div class="container">
+        <div class="stats reveal" style="--d:.4s">
+          {% for s in stats %}
+          <div class="stat">
+            <div class="stat-value">{{ s.value }}</div>
+            <div class="stat-label">{{ s.label }}</div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <a href="#work" class="scroll-cue" aria-label="Scroll to work"><span></span></a>
+    </section>
+
+    <!-- ============ WORK ============ -->
+    <section class="section" id="work">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">01 — Selected work</span>
+          <h2>Things I've <em>built</em></h2>
+          <p class="section-lead">Full-stack projects designed, built, tested and deployed end to end.</p>
+        </div>
+
+        <div class="projects">
+          {% for p in projects %}
+          <article class="project reveal spotlight" style="--accent: {{ p.accent }}">
+            <div class="project-visual" aria-hidden="true">
+              {% if p.visual == "dashboard" %}
+              <svg viewBox="0 0 400 260" class="viz viz-dash">
+                <rect x="16" y="16" width="368" height="228" rx="14" class="viz-panel"/>
+                <rect x="32" y="34" width="70" height="8" rx="4" class="viz-dim"/>
+                <rect x="32" y="50" width="120" height="18" rx="5" class="viz-strong"/>
+                <g class="viz-cards">
+                  <rect x="32" y="84" width="104" height="52" rx="9" class="viz-card"/>
+                  <rect x="148" y="84" width="104" height="52" rx="9" class="viz-card"/>
+                  <rect x="264" y="84" width="104" height="52" rx="9" class="viz-card"/>
+                  <rect x="44" y="98" width="40" height="6" rx="3" class="viz-dim"/>
+                  <rect x="44" y="112" width="64" height="12" rx="4" class="viz-accent"/>
+                  <rect x="160" y="98" width="40" height="6" rx="3" class="viz-dim"/>
+                  <rect x="160" y="112" width="52" height="12" rx="4" class="viz-strong"/>
+                  <rect x="276" y="98" width="40" height="6" rx="3" class="viz-dim"/>
+                  <rect x="276" y="112" width="72" height="12" rx="4" class="viz-strong"/>
+                </g>
+                <g class="viz-bars">
+                  {% for h in [44, 62, 38, 70, 56, 84, 66, 92, 74, 98] %}
+                  <rect x="{{ 36 + loop.index0 * 22 }}" y="{{ 228 - h }}" width="12" height="{{ h }}" rx="3" class="{% if loop.last %}viz-accent{% else %}viz-bar{% endif %}" style="--i:{{ loop.index0 }}"/>
+                  {% endfor %}
+                </g>
+                <circle cx="318" cy="186" r="34" class="viz-ring-bg"/>
+                <circle cx="318" cy="186" r="34" class="viz-ring" pathLength="100"/>
+              </svg>
+              {% elif p.visual == "flow" %}
+              <svg viewBox="0 0 400 260" class="viz viz-flow">
+                <rect x="16" y="16" width="368" height="228" rx="14" class="viz-panel"/>
+                <path d="M92 80 C 150 80, 150 130, 200 130 M200 130 C 250 130, 250 80, 308 80 M200 130 C 250 130, 250 190, 308 190 M92 190 C 150 190, 150 130, 200 130" class="viz-wire"/>
+                <path d="M92 80 C 150 80, 150 130, 200 130 M200 130 C 250 130, 250 80, 308 80 M200 130 C 250 130, 250 190, 308 190 M92 190 C 150 190, 150 130, 200 130" class="viz-wire-flow"/>
+                <g class="viz-node"><rect x="36" y="62" width="76" height="36" rx="9" class="viz-card"/><text x="74" y="84">Email</text></g>
+                <g class="viz-node"><rect x="36" y="172" width="76" height="36" rx="9" class="viz-card"/><text x="74" y="194">PDF</text></g>
+                <g class="viz-node viz-node-main"><rect x="156" y="108" width="88" height="44" rx="11" class="viz-accent-box"/><text x="200" y="134">LangGraph</text></g>
+                <g class="viz-node"><rect x="288" y="62" width="80" height="36" rx="9" class="viz-card"/><text x="328" y="84">Extract</text></g>
+                <g class="viz-node"><rect x="288" y="172" width="80" height="36" rx="9" class="viz-card"/><text x="328" y="194">Risk</text></g>
+              </svg>
+              {% elif p.visual == "chart" %}
+              <svg viewBox="0 0 400 260" class="viz viz-chart">
+                <rect x="16" y="16" width="368" height="228" rx="14" class="viz-panel"/>
+                {% for y in [70, 110, 150, 190] %}<line x1="36" x2="364" y1="{{ y }}" y2="{{ y }}" class="viz-grid"/>{% endfor %}
+                <path d="M36 150 C 70 120, 96 96, 130 110 S 190 170, 226 140 S 290 70, 326 92 S 356 120, 364 110 L 364 170 C 356 180, 340 160, 326 150 S 260 128, 226 196 S 160 200, 130 168 S 70 186, 36 200 Z" class="viz-band"/>
+                <path d="M36 175 C 70 150, 96 128, 130 140 S 190 196, 226 168 S 290 100, 326 122 S 356 146, 364 140" class="viz-line-forecast"/>
+                <path d="M36 186 C 66 170, 100 150, 130 162 S 186 214, 226 190 S 286 130, 326 150 S 354 168, 364 160" class="viz-line-actual"/>
+                <circle cx="226" cy="168" r="5" class="viz-dot"/>
+                <rect x="36" y="32" width="10" height="4" rx="2" class="viz-accent"/><rect x="52" y="31" width="54" height="6" rx="3" class="viz-dim"/>
+                <rect x="120" y="32" width="10" height="4" rx="2" class="viz-strong"/><rect x="136" y="31" width="42" height="6" rx="3" class="viz-dim"/>
+              </svg>
+              {% endif %}
+            </div>
+
+            <div class="project-body">
+              <div class="project-top">
+                <span class="mono project-index">{{ "%02d"|format(loop.index) }}</span>
+                <span class="mono project-tag">{{ p.tagline }}</span>
+              </div>
+              <h3 class="project-name">{{ p.name }}</h3>
+              <p class="project-summary">{{ p.summary }}</p>
+              <ul class="project-points">
+                {% for h in p.highlights %}<li>{{ h }}</li>{% endfor %}
+              </ul>
+              <ul class="chips" aria-label="Tech stack">
+                {% for t in p.stack %}<li>{{ t }}</li>{% endfor %}
+              </ul>
+              <div class="project-links">
+                {% if p.live %}
+                <a href="{{ p.live }}" target="_blank" rel="noopener" class="link-arrow">
+                  Live demo
+                  <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+                {% endif %}
+                {% if p.code %}
+                <a href="{{ p.code }}" target="_blank" rel="noopener" class="link-arrow">
+                  Source code
+                  <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+                {% endif %}
+              </div>
+            </div>
+          </article>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section" id="about">
+      <div class="container about-grid">
+        <div class="section-head reveal">
+          <span class="eyebrow">02 — About</span>
+          <h2>From enterprise systems to <em>full-stack</em> products</h2>
+        </div>
+        <div class="about-text reveal" style="--d:.08s">
+          {% for para in about.paragraphs %}<p>{{ para }}</p>{% endfor %}
+        </div>
+      </div>
+      <div class="container">
+        <div class="principles">
+          {% for pr in about.principles %}
+          <div class="principle reveal spotlight" style="--d:{{ loop.index0 * 0.08 }}s">
+            <span class="mono principle-n">{{ "%02d"|format(loop.index) }}</span>
+            <h3>{{ pr.title }}</h3>
+            <p>{{ pr.text }}</p>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EXPERIENCE ============ -->
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">03 — Experience</span>
+          <h2>Where I've <em>worked</em></h2>
+        </div>
+        <ol class="timeline">
+          {% for job in experience %}
+          <li class="tl-item reveal">
+            <div class="tl-when mono">{{ job.period }}</div>
+            <div class="tl-card spotlight">
+              <div class="tl-head">
+                <h3>{{ job.role }}</h3>
+                <span class="tl-company">{{ job.company }} · {{ job.location }}</span>
+              </div>
+              <ul>
+                {% for pt in job.points %}<li>{{ pt }}</li>{% endfor %}
+              </ul>
+            </div>
+          </li>
+          {% endfor %}
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ SKILLS ============ -->
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">04 — Toolkit</span>
+          <h2>Skills &amp; <em>credentials</em></h2>
+        </div>
+        <div class="skills">
+          {% for g in skills %}
+          <div class="skill-group reveal spotlight" style="--d:{{ (loop.index0 % 4) * 0.06 }}s">
+            <h3 class="mono">{{ g.group }}</h3>
+            <ul class="chips">
+              {% for s in g["items"] %}<li>{{ s }}</li>{% endfor %}
+            </ul>
+          </div>
+          {% endfor %}
+        </div>
+
+        <div class="creds">
+          <div class="creds-col reveal">
+            <h3 class="creds-title mono">Certifications</h3>
+            {% for c in certifications %}
+            <a class="cred" href="{{ c.url }}" target="_blank" rel="noopener">
+              <div>
+                <div class="cred-name">{{ c.name }}</div>
+                <div class="cred-meta">{{ c.issuer }} · {{ c.date }}</div>
+              </div>
+              <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            {% endfor %}
+          </div>
+          <div class="creds-col reveal" style="--d:.08s">
+            <h3 class="creds-title mono">Education</h3>
+            {% for e in education %}
+            <div class="cred">
+              <div>
+                <div class="cred-name">{{ e.degree }}</div>
+                <div class="cred-meta">{{ e.school }} · {{ e.detail }} · {{ e.period }}</div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section contact" id="contact">
+      <div class="container">
+        <div class="contact-card reveal">
+          <div class="contact-glow" aria-hidden="true"></div>
+          <span class="eyebrow">05 — Contact</span>
+          <h2 class="contact-title">Let's build something <em>reliable</em> together.</h2>
+          <p class="section-lead">I'm looking for Software Engineer roles in full-stack, backend or applied AI. The fastest way to reach me is email.</p>
+          <div class="contact-actions">
+            <button type="button" class="email-btn magnetic" id="copyEmail" data-email="{{ person.email }}">
+              <span class="email-text">{{ person.email }}</span>
+              <span class="email-hint mono" id="copyHint">click to copy</span>
+            </button>
+          </div>
+          <div class="contact-links">
+            <a href="mailto:{{ person.email }}" class="btn btn-primary magnetic">Send an email</a>
+            <a href="{{ person.linkedin }}" target="_blank" rel="noopener" class="btn btn-ghost magnetic">
+              <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+              LinkedIn
+            </a>
+            <a href="{{ person.resume }}" class="btn btn-ghost magnetic" download>Resume (PDF)</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© {{ year }} {{ person.name }}</span>
+      <span class="mono">Designed &amp; built from scratch</span>
+      <a href="#top" class="to-top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script src="js/main.js?v={{ build_id }}" defer></script>
+</body>
+</html>
