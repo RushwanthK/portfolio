@@ -134,19 +134,21 @@ skills:
   - group: "Languages"
     items: ["Python", "JavaScript", "TypeScript", "SQL", "PL/SQL", "C++"]
   - group: "Frontend"
-    items: ["React", "Redux Toolkit", "HTML", "CSS", "Material UI", "Tailwind"]
+    items: ["React", "Redux Toolkit", "HTML", "CSS", "Material UI", "Tailwind CSS"]
   - group: "Backend & APIs"
-    items: ["Flask", "FastAPI", "SQLAlchemy", "REST APIs", "JWT Auth", "Flask-Migrate"]
-  - group: "Data & Caching"
-    items: ["PostgreSQL", "Redis", "SQLite", "Oracle SQL", "pandas"]
+    items: ["Flask", "FastAPI", "SQLAlchemy", "REST APIs", "JWT Authentication"]
   - group: "AI"
-    items: ["LangGraph", "Groq", "LLM workflows", "PDF extraction"]
-  - group: "DevOps & Cloud"
-    items: ["Docker", "Docker Compose", "GitHub Actions", "Vercel", "Render", "Supabase"]
+    items: ["RAG", "LLM Agents", "LangGraph", "Groq", "Gemini"]
+  - group: "Databases & Data"
+    items: ["PostgreSQL", "pgvector", "SQLite", "Oracle SQL", "Redis", "pandas"]
   - group: "Testing"
     items: ["Pytest", "Postman"]
+  - group: "DevOps & Cloud"
+    items: ["GitHub Actions", "Docker", "Vercel", "Render", "Supabase"]
+  - group: "Developer Tools"
+    items: ["Git", "Claude Code", "Codex"]
   - group: "Enterprise"
-    items: ["Oracle APEX", "PeopleSoft", "Workday FIN/PSA", "Salesforce"]
+    items: ["PeopleSoft", "Workday FIN/PSA", "Salesforce", "Oracle APEX"]
 
 certifications:
   - name: "Oracle APEX Cloud Developer Certified Professional"
