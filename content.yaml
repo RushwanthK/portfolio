@@ -59,19 +59,21 @@ about:
 projects:
   - id: "ppa"
     name: "Personal Portfolio Application"
-    tagline: "Full-stack personal finance platform"
+    tagline: "Full-stack finance platform with an AI assistant"
     year: "2026"
     visual: "dashboard"
     accent: "#8b7bff"
     summary: >-
       A production-style finance app to manage bank accounts, credit cards,
-      savings, assets, investments and transactions from one dashboard.
+      savings, assets, investments and transactions from one dashboard, with
+      an AI assistant built in.
     highlights:
-      - "REST APIs in Flask + SQLAlchemy with JWT auth and per-user access control"
-      - "Server-side transaction search with cursor-based pagination and PostgreSQL indexes"
-      - "Optional Redis caching for dashboard data, with cache invalidation and Postgres fallback"
-      - "Request & SQL performance diagnostics, Pytest suite, GitHub Actions CI, Docker Compose"
-    stack: ["Flask", "React", "PostgreSQL", "Redis", "JWT", "Docker", "GitHub Actions", "Vercel", "Render", "Supabase"]
+      - "REST APIs in Flask with JWT auth, server-side search, cursor-based pagination and Redis caching"
+      - "API security: rate limiting, token revocation on logout and security headers"
+      - "AI assistant: RAG answers about the app, plus an LLM agent for questions about your own data"
+      - "Guardrails for prompt injection, usage limits and data privacy"
+      - "Automated tests, GitHub Actions CI and Docker; deployed on Vercel, Render and Supabase"
+    stack: ["Flask", "React", "PostgreSQL", "FastAPI", "Redis", "pgvector", "Groq", "Docker", "GitHub Actions", "Vercel", "Render", "Supabase"]
     live: "https://rs-ppa.vercel.app"
     code: "https://github.com/RushwanthK/PPA"
 
